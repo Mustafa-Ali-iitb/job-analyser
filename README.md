@@ -19,7 +19,6 @@ Job Analyzer is designed to help job seekers and recruiters quickly understand t
 
 ### Technical Features
 - **Real-time Processing**: Fast analysis using optimized NLP pipelines
-- **Responsive Design**: Modern, mobile-friendly user interface
 - **Secure API**: JWT-based authentication with proper security measures
 - **Data Persistence**: MongoDB database for user data and analysis history
 - **Docker Support**: Complete containerization for easy deployment
@@ -69,11 +68,35 @@ The application follows a modern microservices architecture:
 - Docker and Docker Compose installed
 - At least 4GB RAM and 10GB disk space
 
-### Installation
+### Quick Setup
+
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone https://github.com/Mustafa-Ali-iitb/job-analyser.git
 cd job-analyser
+
+# Create environment file
+cp .env.example .env
+# Edit .env file with your configuration
+# The .env.example file contains all required variables with default values
+
+## Environment Variables
+
+The following environment variables are required:
+
+### MongoDB Configuration
+- `MONGODB_URI`: MongoDB connection string
+  - **For local MongoDB**: `mongodb://admin:password123@localhost:27017/job_analyzer?authSource=admin`
+  - **For external MongoDB**: `mongodb://your-username:your-password@your-host:27017/your-database?authSource=admin`
+
+### JWT Authentication
+- `JWT_SECRET_KEY`: Secret key for JWT token generation (change in production)
+- `JWT_ALGORITHM`: JWT algorithm (default: HS256)
+- `ACCESS_TOKEN_EXPIRE_MINUTES`: Token expiration time (default: 30)
+
+### Frontend Configuration
+- `REACT_APP_API_URL`: Backend API URL (default: http://localhost:8000)
+
 
 # Start all services
 docker-compose up --build
@@ -81,11 +104,7 @@ docker-compose up --build
 # Access the application
 # Frontend: http://localhost:3000
 # Backend API: http://localhost:8000
-```
 
-### Default Credentials
-- **Username**: admin
-- **Password**: admin123
 
 ## Usage
 
@@ -143,8 +162,7 @@ job-analyser/
 │   │   ├── pages/         # Page components
 │   │   └── styles/        # CSS stylesheets
 │   └── package.json       # Node.js dependencies
-├── docker-compose.yml      # Docker orchestration
-└── DOCKER_README.md       # Docker setup guide
+└── docker-compose.yml      # Docker orchestration
 ```
 
 ## NLP Pipeline
@@ -172,24 +190,33 @@ The application uses a sophisticated NLP pipeline for job description analysis:
 - **Response Caching**: Analysis results are stored for quick retrieval
 - **Async Processing**: Non-blocking API operations
 
-## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Add tests if applicable
-5. Submit a pull request
+## Troubleshooting
 
-## License
+### Common Issues
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+1. **MongoDB Connection Error**
+   - Ensure MongoDB is running: `docker-compose up mongodb`
+   - Check connection string in `.env` file
+   - Verify MongoDB credentials
 
-## Support
+2. **Port Already in Use**
+   - Change ports in `docker-compose.yml` if 3000 or 8000 are occupied
+   - Kill existing containers: `docker-compose down`
 
-For technical support or questions:
-- Check the [Docker README](DOCKER_README.md) for deployment issues
-- Review the [Explanation Document](explanation.md) for technical details
-- Open an issue on the project repository
+3. **Build Failures**
+   - Clear Docker cache: `docker system prune -a`
+   - Rebuild containers: `docker-compose up --build --force-recreate`
+
+4. **Memory Issues**
+   - Ensure at least 4GB RAM available
+   - Close other applications to free memory
+
+### Getting Help
+
+- Check Docker logs: `docker-compose logs [service-name]`
+- Verify environment variables: `docker-compose config`
+- Test individual services: `docker-compose up [service-name]`
 
 ## Acknowledgments
 

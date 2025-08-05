@@ -1,15 +1,15 @@
 version: '3.8'
 
 services:
-  # MongoDB service
+  # MongoDB service (only if using local MongoDB)
   mongodb:
     image: mongo:7.0
     container_name: job-analyzer-mongodb
     restart: unless-stopped
     environment:
-      MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: password123
-      MONGO_INITDB_DATABASE: job_analyzer
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME:-admin}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD:-password123}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE:-job_analyzer}
     ports:
       - "27017:27017"
     volumes:
@@ -17,6 +17,8 @@ services:
       - ./backend/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
     networks:
       - job-analyzer-network
+    profiles:
+      - local-mongo
 
   # Backend service
   backend:
@@ -26,14 +28,12 @@ services:
     container_name: job-analyzer-backend
     restart: unless-stopped
     environment:
-      - MONGODB_URI=mongodb://admin:password123@mongodb:27017/job_analyzer?authSource=admin
-      - JWT_SECRET_KEY=your-super-secret-jwt-key-change-in-production
-      - JWT_ALGORITHM=HS256
-      - ACCESS_TOKEN_EXPIRE_MINUTES=30
+      - MONGODB_URI=${MONGODB_URI}
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY:-your-super-secret-jwt-key-change-in-production}
+      - JWT_ALGORITHM=${JWT_ALGORITHM:-HS256}
+      - ACCESS_TOKEN_EXPIRE_MINUTES=${ACCESS_TOKEN_EXPIRE_MINUTES:-30}
     ports:
       - "8000:8000"
-    depends_on:
-      - mongodb
     networks:
       - job-analyzer-network
     volumes:
@@ -59,7 +59,7 @@ services:
     networks:
       - job-analyzer-network
     environment:
-      - REACT_APP_API_URL=http://localhost:8000
+      - REACT_APP_API_URL=${REACT_APP_API_URL:-http://localhost:8000}
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:80/"]
       interval: 30s
