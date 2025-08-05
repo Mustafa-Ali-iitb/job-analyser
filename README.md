@@ -132,8 +132,8 @@ The application will automatically:
 - Use external MongoDB if MONGODB_URI is provided in .env
 
 Access the application
-Frontend: http://localhost:3000
-Backend API: http://localhost:8000
+- Frontend: http://localhost:3000
+- Backend API: http://localhost:8000
 
 
 ## Usage
