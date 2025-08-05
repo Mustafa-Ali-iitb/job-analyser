@@ -242,12 +242,6 @@ The application uses a sophisticated NLP pipeline for job description analysis:
    - Ensure at least 4GB RAM available
    - Close other applications to free memory
 
-### Getting Help
-
-- Check Docker logs: `docker-compose logs [service-name]`
-- Verify environment variables: `docker-compose config`
-- Test individual services: `docker-compose up [service-name]`
-
 ## Acknowledgments
 
 - spaCy for excellent NLP capabilities
