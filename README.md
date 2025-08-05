@@ -121,16 +121,19 @@ This script will:
 - Configure data validation schemas
 
 
-# Start all services
+## Start all services
+
+```bash
 docker-compose up --build
+```
 
-# The application will automatically:
-# - Use local MongoDB if MONGODB_URI is not set in .env
-# - Use external MongoDB if MONGODB_URI is provided in .env
+The application will automatically:
+- Use local MongoDB if MONGODB_URI is not set in .env
+- Use external MongoDB if MONGODB_URI is provided in .env
 
-# Access the application
-# Frontend: http://localhost:3000
-# Backend API: http://localhost:8000
+Access the application
+Frontend: http://localhost:3000
+Backend API: http://localhost:8000
 
 
 ## Usage
