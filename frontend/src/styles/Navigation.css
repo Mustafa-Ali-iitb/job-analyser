@@ -1,0 +1,40 @@
+.navigation {
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 24px;
+  }
+  
+  .nav-container {
+    display: flex;
+    gap: 0;
+  }
+  
+  .nav-item {
+    padding: 16px 24px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 15px;
+    font-weight: 500;
+    color: #718096;
+    transition: all 0.2s;
+    border-bottom: 3px solid transparent;
+  }
+  
+  .nav-item:hover {
+    color: #4a5568;
+    background: #f7fafc;
+  }
+  
+  .nav-item.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+    background: #f7fafc;
+  }
+  
+  .nav-icon {
+    font-size: 16px;
+  }

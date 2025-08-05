@@ -1,0 +1,160 @@
+.header {
+    background: white;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 24px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  .header-left .tool-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #2d3748;
+    margin: 0;
+  }
+  
+  .header-right {
+    position: relative;
+  }
+  
+  .profile-container {
+    position: relative;
+  }
+  
+  .profile-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    transition: transform 0.2s;
+  }
+  
+  .profile-icon:hover {
+    transform: scale(1.05);
+  }
+  
+  .profile-menu {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 280px;
+    overflow: hidden;
+    z-index: 1000;
+  }
+  
+  .profile-info {
+    padding: 20px;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  
+  .profile-detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 12px;
+  }
+  
+  .profile-detail:last-child {
+    margin-bottom: 0;
+  }
+  
+  .profile-detail .label {
+    font-weight: 500;
+    color: #718096;
+  }
+  
+  .profile-detail .value {
+    font-weight: 600;
+    color: #2d3748;
+  }
+  
+  .profile-actions {
+    padding: 8px 0;
+  }
+  
+  .menu-item {
+    width: 100%;
+    padding: 12px 20px;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+  }
+  
+  .menu-item:hover {
+    background: #f7fafc;
+  }
+  
+  .menu-item .icon {
+    font-size: 16px;
+  }
+  
+  .settings-btn {
+    color: #4a5568;
+  }
+  
+  .logout-btn {
+    color: #e53e3e;
+  }
+  
+  .logout-btn:hover {
+    background: #fed7d7;
+  }
+
+  .profile-loading {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #718096;
+  }
+  
+  .loading-spinner-small {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #e2e8f0;
+    border-top: 2px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  .profile-detail .value {
+    font-weight: 600;
+    color: #2d3748;
+    word-break: break-word;
+    max-width: 150px;
+    text-align: right;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

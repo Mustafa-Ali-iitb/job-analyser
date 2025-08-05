@@ -1,0 +1,353 @@
+.analysis-card {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.2s;
+    position: relative;
+  }
+  
+  .analysis-card:hover {
+    border-color: #cbd5e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+  
+  .card-header {
+    padding: 20px;
+    border-bottom: 1px solid #f7fafc;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  
+  .header-main {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-right: 16px;
+  }
+  
+  .role-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .role-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0;
+  }
+  
+  .experience-badge {
+    background: linear-gradient(135deg, #667eea20 0%, #764ba220 100%);
+    color: #5a67d8;
+    padding: 4px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    width: fit-content;
+  }
+  
+  .date-info {
+    text-align: right;
+  }
+  
+  .analysis-date {
+    font-size: 13px;
+    color: #718096;
+    font-weight: 500;
+  }
+  
+  .header-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .expand-btn, .delete-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  
+  .expand-btn {
+    background: #f7fafc;
+    color: #4a5568;
+  }
+  
+  .expand-btn:hover {
+    background: #edf2f7;
+    color: #2d3748;
+  }
+  
+  .expand-icon {
+    font-size: 12px;
+    transition: transform 0.2s;
+  }
+  
+  .expand-icon.expanded {
+    transform: rotate(180deg);
+  }
+  
+  .delete-btn {
+    background: #fed7d7;
+    color: #c53030;
+    font-size: 14px;
+  }
+  
+  .delete-btn:hover {
+    background: #feb2b2;
+  }
+  
+  .card-content {
+    padding: 20px;
+  }
+  
+  .skills-preview {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  
+  .skills-label {
+    font-size: 14px;
+    color: #718096;
+    font-weight: 500;
+    min-width: fit-content;
+  }
+  
+  .skills-tags {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  
+  .skill-tag-small {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    border: 1px solid transparent;
+  }
+  
+  .more-skills {
+    font-size: 12px;
+    color: #718096;
+    font-style: italic;
+  }
+  
+  .summary-preview {
+    margin-bottom: 16px;
+  }
+  
+  .summary-preview p {
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  /* Expanded Content */
+  .expanded-content {
+    border-top: 1px solid #f7fafc;
+    padding-top: 20px;
+    margin-top: 16px;
+  }
+  
+  .expanded-section {
+    margin-bottom: 24px;
+  }
+  
+  .expanded-section:last-child {
+    margin-bottom: 0;
+  }
+  
+  .expanded-section h5 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 12px;
+  }
+  
+  .all-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  
+  .skill-tag {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid transparent;
+  }
+  
+  /* Skill Colors */
+  .skill-tag-small.frontend, .skill-tag.frontend {
+    background: #fef5e7;
+    color: #d69e2e;
+    border-color: #f6e05e;
+  }
+  
+  .skill-tag-small.backend, .skill-tag.backend {
+    background: #f0fff4;
+    color: #38a169;
+    border-color: #9ae6b4;
+  }
+  
+  .skill-tag-small.database, .skill-tag.database {
+    background: #e6fffa;
+    color: #319795;
+    border-color: #81e6d9;
+  }
+  
+  .skill-tag-small.devops, .skill-tag.devops {
+    background: #e3f2fd;
+    color: #3182ce;
+    border-color: #90cdf4;
+  }
+  
+  .skill-tag-small.ml, .skill-tag.ml {
+    background: #faf5ff;
+    color: #805ad5;
+    border-color: #c4b5fd;
+  }
+  
+  .skill-tag-small.mobile, .skill-tag.mobile {
+    background: #fff5f5;
+    color: #e53e3e;
+    border-color: #feb2b2;
+  }
+  
+  .skill-tag-small.other, .skill-tag.other {
+    background: #f7fafc;
+    color: #4a5568;
+    border-color: #e2e8f0;
+  }
+  
+  .full-summary {
+    background: #f7fafc;
+    padding: 16px;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    color: #4a5568;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .job-description {
+    background: #f7fafc;
+    padding: 16px;
+    border-radius: 8px;
+    color: #4a5568;
+    font-size: 13px;
+    line-height: 1.5;
+    max-height: 200px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+  }
+  
+  /* Delete Modal */
+  .delete-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .delete-modal {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+  }
+  
+  .delete-modal h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 12px;
+  }
+  
+  .delete-modal p {
+    color: #718096;
+    font-size: 14px;
+    line-height: 1.5;
+    margin-bottom: 24px;
+  }
+  
+  .modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+  }
+  
+  .cancel-btn, .confirm-delete-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .cancel-btn {
+    background: #f7fafc;
+    color: #4a5568;
+    border: 1px solid #e2e8f0;
+  }
+  
+  .cancel-btn:hover {
+    background: #edf2f7;
+  }
+  
+  .confirm-delete-btn {
+    background: #e53e3e;
+    color: white;
+  }
+  
+  .confirm-delete-btn:hover {
+    background: #c53030;
+  }
+  
+  /* Responsive */
+  @media (max-width: 640px) {
+    .header-main {
+      flex-direction: column;
+      gap: 12px;
+    }
+    
+    .date-info {
+      text-align: left;
+    }
+    
+    .skills-preview {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .modal-actions {
+      flex-direction: column;
+    }
+  }

@@ -1,0 +1,136 @@
+.job-analyzer {
+    padding: 40px 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .analyzer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+    min-height: 500px;
+  }
+  
+  .left-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .hero-content {
+    max-width: 500px;
+  }
+  
+  .hero-title {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.2;
+    color: #2d3748;
+    margin-bottom: 20px;
+  }
+  
+  .highlight {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hero-subtitle {
+    font-size: 18px;
+    color: #718096;
+    line-height: 1.6;
+    margin-bottom: 32px;
+  }
+  
+  .analyze-btn {
+    padding: 18px 32px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  }
+  
+  .analyze-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+  }
+  
+  .btn-icon {
+    font-size: 18px;
+  }
+  
+  .right-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .image-container {
+    width: 100%;
+    max-width: 700px;
+  }
+  
+  /* .sample-image {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 2px dashed #cbd5e0;
+  }
+   */
+  .image-placeholder {
+    text-align: center;
+  }
+  
+  .job-analysis-image {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .placeholder-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 12px;
+  }
+  
+  .placeholder-text {
+    color: #718096;
+    font-weight: 500;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .analyzer-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+      text-align: center;
+    }
+    
+    .hero-title {
+      font-size: 36px;
+    }
+    
+    .left-section {
+      order: 2;
+    }
+    
+    .right-section {
+      order: 1;
+    }
+  }
