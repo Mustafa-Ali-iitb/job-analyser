@@ -85,9 +85,10 @@ cp .env.example .env
 The following environment variables are required:
 
 ### MongoDB Configuration
-- `MONGODB_URI`: MongoDB connection string
-  - **For local MongoDB**: `mongodb://admin:password123@localhost:27017/job_analyzer?authSource=admin`
-  - **For external MongoDB**: `mongodb://your-username:your-password@your-host:27017/your-database?authSource=admin`
+- `MONGODB_URI`: MongoDB connection string (optional)
+  - **If not set**: Automatically uses local MongoDB container
+  - **If set**: Uses your external MongoDB instance
+  - **External MongoDB example**: `mongodb://your-username:your-password@your-host:27017/your-database?authSource=admin`
 
 ### JWT Authentication
 - `JWT_SECRET_KEY`: Secret key for JWT token generation (change in production)
@@ -97,9 +98,35 @@ The following environment variables are required:
 ### Frontend Configuration
 - `REACT_APP_API_URL`: Backend API URL (default: http://localhost:8000)
 
+## Database Setup
+
+### Automatic Setup
+The application automatically handles database setup:
+
+- **If MONGODB_URI is not set**: Uses local MongoDB container with automatic initialization
+- **If MONGODB_URI is set**: Uses your external MongoDB (requires manual initialization)
+
+### Manual Setup for External MongoDB
+If you're using an external MongoDB instance, you need to manually run the initialization script:
+
+```bash
+# Connect to your MongoDB and run the init script
+mongo your-mongodb-uri backend/init-mongo.js
+```
+
+This script will:
+- Create required collections (`users`, `analyses`)
+- Set up database indexes for performance
+- Create a default admin user (admin/admin123)
+- Configure data validation schemas
+
 
 # Start all services
 docker-compose up --build
+
+# The application will automatically:
+# - Use local MongoDB if MONGODB_URI is not set in .env
+# - Use external MongoDB if MONGODB_URI is provided in .env
 
 # Access the application
 # Frontend: http://localhost:3000
@@ -196,8 +223,8 @@ The application uses a sophisticated NLP pipeline for job description analysis:
 ### Common Issues
 
 1. **MongoDB Connection Error**
-   - Ensure MongoDB is running: `docker-compose up mongodb`
-   - Check connection string in `.env` file
+   - If using local MongoDB: Check if MongoDB container is running
+   - If using external MongoDB: Verify connection string in `.env` file
    - Verify MongoDB credentials
 
 2. **Port Already in Use**
